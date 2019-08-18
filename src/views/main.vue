@@ -1,11 +1,13 @@
 <template>
   <div class="main width">
     <el-container>
-      <el-aside width="250px">
+      <el-aside width="auto">
         <v-sidebar></v-sidebar>
       </el-aside>
       <el-container>
-        <el-header>Header</el-header>
+        <el-header>
+          <v-header></v-header>
+        </el-header>
         <el-main>
           <div class="tag-nav-wrapper">
             <v-tags></v-tags>
@@ -24,6 +26,7 @@
 <script>
 import vSidebar from "@/components/Sidebar.vue";
 import vTags from "@/components/Tags.vue";
+import vHeader from "@/components/Header.vue";
 export default {
   name: "main",
   data() {
@@ -34,7 +37,8 @@ export default {
   },
   components: {
     vSidebar,
-    vTags
+    vTags,
+    vHeader
   },
   methods: {
     handleClick(tab, event) {
@@ -56,11 +60,12 @@ export default {
 </script>
 <style lang="scss">
 // @import "@/assets/scss/mixin.scss";
-p {
-  @include font_color(blue);
+h1{
+  @include font_color(null);
 }
 .el-header {
-  background-color: #b3c0d1;
+  @include haeder-background();
+  // background: #0e9b92 linear-gradient(135deg, #0b827c, #11bab0);
   color: #333;
   text-align: center;
   height: 60px;

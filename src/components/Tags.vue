@@ -147,7 +147,9 @@ export default {
 .tags-li.active {
   color: #fff;
 }
-
+.tags-li.active{
+  background-color: cornflowerblue;
+}
 .tags-li-title {
   float: left;
   max-width: 80px;

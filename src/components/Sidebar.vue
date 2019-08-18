@@ -4,7 +4,8 @@
       class="sidebar-el-menu"
       :default-active="onRoutes"
       :collapse="collapse"
-      text-color="#bfcbd9"
+      background-color="#fcfcfc"
+      text-color="#000"
       active-text-color="#20a0ff"
       unique-opened
       router
@@ -142,7 +143,7 @@ export default {
 .sidebar {
   display: block;
   height: 100%;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 .sidebar::-webkit-scrollbar {
   width: 0;

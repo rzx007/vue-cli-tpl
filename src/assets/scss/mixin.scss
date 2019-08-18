@@ -2,10 +2,12 @@
 @import "./variables.scss";
 
 @mixin font_color($color) {
+
     /*通过该函数设置字体颜色，后期方便统一管理；*/
     @if $color {
         color: $color;
     }
+
     @else {
         [data-theme="theme1"] & {
             color: $font-color-theme1;
@@ -18,5 +20,20 @@
         [data-theme="theme3"] & {
             color: $font-color-theme3;
         }
+    }
+}
+
+@mixin haeder-background() {
+
+    [data-theme="theme1"] & {
+        background: $background-color-theme1;
+    }
+
+    [data-theme="theme2"] & {
+        background: $background-color-theme2;
+    }
+
+    [data-theme="theme3"] & {
+        background: $background-color-theme3;
     }
 }
