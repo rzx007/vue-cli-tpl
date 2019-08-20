@@ -2,7 +2,9 @@
   <div class="main width">
     <el-container>
       <el-aside width="auto">
-        <v-sidebar></v-sidebar>
+        <el-scrollbar wrap-class="scrollbar-wrapper">
+          <v-sidebar></v-sidebar>
+        </el-scrollbar>
       </el-aside>
       <el-container>
         <el-header>
@@ -24,6 +26,7 @@
 </template>
 
 <script>
+import bus from "@/utils/bus";
 import vSidebar from "@/components/Sidebar.vue";
 import vTags from "@/components/Tags.vue";
 import vHeader from "@/components/Header.vue";
@@ -60,7 +63,7 @@ export default {
 </script>
 <style lang="scss">
 // @import "@/assets/scss/mixin.scss";
-h1{
+h1 {
   @include font_color(null);
 }
 .el-header {
@@ -81,7 +84,9 @@ h1{
 }
 .el-aside {
   background-color: #d3dce6;
-  color: #333;
-  text-align: center;
+  // color: #333;
+  .sidebar-el-menu[data-v-7d622f5c]:not(.el-menu--collapse){
+    width: 210px !important;
+  }
 }
 </style>

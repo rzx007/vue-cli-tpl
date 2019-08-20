@@ -142,8 +142,8 @@ export default {
 <style scoped>
 .sidebar {
   display: block;
-  height: 100%;
-  overflow: hidden;
+  height: 100vh;
+  /* overflow: hidden; */
 }
 .sidebar::-webkit-scrollbar {
   width: 0;

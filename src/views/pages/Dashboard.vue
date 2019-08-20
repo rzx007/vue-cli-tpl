@@ -2,6 +2,7 @@
 <template>
 <div class=''>
     <h1>Dashbooard</h1>
+   <component is="over"></component>
 </div>
 </template>
 

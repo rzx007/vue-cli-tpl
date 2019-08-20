@@ -1,50 +1,56 @@
 <template>
-    <div class="header">
-        <!-- 折叠按钮 -->
-        <div class="collapse-btn" @click="collapseChage">
-            <i class="el-icon-menu"></i>
+  <div class="header">
+    <!-- 折叠按钮 -->
+    <div class="collapse-btn" @click="collapseChage">
+      <i class="el-icon-menu"></i>
+    </div>
+    <div class="logo">后台管理系统</div>
+    <div class="header-right">
+      <div class="header-user-con">
+        <!-- 全屏显示 -->
+        <div class="btn-fullscreen" @click="handleFullScreen">
+          <el-tooltip effect="dark" :content="fullscreen?`取消全屏`:`全屏`" placement="bottom">
+            <i class="el-icon-rank"></i>
+          </el-tooltip>
         </div>
-        <div class="logo">后台管理系统</div>
-        <div class="header-right">
-            <div class="header-user-con">
-                <!-- 全屏显示 -->
-                <div class="btn-fullscreen" @click="handleFullScreen">
-                    <el-tooltip effect="dark" :content="fullscreen?`取消全屏`:`全屏`" placement="bottom">
-                        <i class="el-icon-rank"></i>
-                    </el-tooltip>
-                </div>
-                <el-tooltip
-                    effect="dark"
-                    :content="message?`有${message}条未读消息`:`消息中心`"
-                    placement="bottom"
-                >
-                    <router-link to="/tabs">
-                        <i class="el-icon-bell"></i>
-                    </router-link>
-                </el-tooltip>
-                <!-- 消息中心 -->
-                <!-- <div class="btn-bell">
+        <el-tooltip effect="dark" :content="message?`有${message}条未读消息`:`消息中心`" placement="bottom">
+          <router-link to="/tabs">
+            <i class="el-icon-bell"></i>
+          </router-link>
+        </el-tooltip>
+        <!-- 消息中心 -->
+        <!-- <div class="btn-bell">
                    
                     <span class="btn-bell-badge" v-if="message"></span>
-                </div>-->
+        </div>-->
 
-                <!-- 用户头像 -->
-                <div class="user-avator">
-                    <img src="@/assets/img/a.jpg">
-                </div>
-                <!-- 用户名下拉菜单 -->
-                <el-dropdown class="user-name" trigger="click" @command="handleCommand">
-                    <span class="el-dropdown-link">
-                        {{username}}
-                        <i class="el-icon-caret-bottom"></i>
-                    </span>
-                    <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item divided command="loginout">退出登录</el-dropdown-item>
-                    </el-dropdown-menu>
-                </el-dropdown>
-            </div>
+        <el-dropdown trigger="click" @command='changeTheme'>
+          <span class="el-dropdown-link" style="font-size:24px;" title="主题">
+            <i class="el-icon-orange el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="theme1">默认</el-dropdown-item>
+            <el-dropdown-item command="theme2">商务黑</el-dropdown-item>
+            <el-dropdown-item command="theme3">电网绿</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <!-- 用户头像 -->
+        <div class="user-avator">
+          <img src="@/assets/img/a.jpg">
         </div>
+        <!-- 用户名下拉菜单 -->
+        <el-dropdown class="user-name" trigger="click" @command="handleCommand">
+          <span class="el-dropdown-link">
+            {{username}}
+            <i class="el-icon-caret-bottom"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item divided command="loginout">退出登录</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </div>
     </div>
+  </div>
 </template>
 <script>
 import bus from "@/utils/bus";
@@ -102,6 +108,9 @@ export default {
         }
       }
       this.fullscreen = !this.fullscreen;
+    },
+    changeTheme(theme){
+      document.documentElement.setAttribute('data-theme',theme)
     }
   },
   mounted() {

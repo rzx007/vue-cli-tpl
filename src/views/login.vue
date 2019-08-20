@@ -5,7 +5,10 @@
 </template>
 <script>
 export default {
-  
+  mounted(){
+    sessionStorage.setItem('token','qwewqdqwewdsadqw');
+    this.$router.push('/')
+  }
 }
 </script>
 <style lang="scss">
