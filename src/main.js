@@ -7,6 +7,7 @@ import './plugins/element.js'
 // import './element-variables.scss'
 import plugin from '@/utils/install'//global-components
 import * as filters from '@/utils/filters'// global-filters
+import store from '@/store'
 
 Vue.config.productionTip = false
 Vue.use(plugin)
@@ -15,5 +16,6 @@ Object.keys(filters).forEach(key=>{
 })
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')
