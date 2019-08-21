@@ -45,6 +45,11 @@ const constantRoutes = [
     path: '/403',
     name: '403',
     component: () => import('@/views/403.vue')
+  },
+  {
+    path: '*',
+    name: '404',
+    component: () => import('@/views/404.vue')
   }
 ]
 
@@ -56,7 +61,7 @@ const createRouter = () => new Router({
 const router = createRouter()
 
 // 重置路由，防止动态添加路由时，重复添加同一路由信息，导致报错，
-export function resetRouter () {
+export function resetRouter() {
   const newRouter = createRouter()
   router.matcher = newRouter.matcher // reset router
 }

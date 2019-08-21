@@ -4,9 +4,13 @@
   </div>
 </template>
 <script>
+import Cookies from 'js-cookie'
 export default {
+  created(){
+    
+  },
   mounted(){
-    sessionStorage.setItem('token','qwewqdqwewdsadqw');
+    Cookies.set('token','qewqcasdwq')
     this.$router.push('/')
   }
 }

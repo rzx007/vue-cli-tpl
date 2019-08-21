@@ -1,12 +1,14 @@
+import Cookies from 'js-cookie'
 import router, { resetRouter } from './router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+
 const whiteList = ['/login', '/auth-redirect'] // no redirect whitelist
 
 router.beforeEach(async (to, from, next) => {
   // start progress bar
   NProgress.start()
-  const token = sessionStorage.getItem('token')
+  const token = Cookies.get("token")
   // 判断是否登录
   if (token) {
     if (to.path === '/login') {
