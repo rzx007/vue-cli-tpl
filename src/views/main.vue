@@ -15,7 +15,7 @@
             <v-tags></v-tags>
           </div>
           <div class="content-wrapper">
-            <keep-alive :include="cacheList">
+            <keep-alive>
               <router-view/>
             </keep-alive>
           </div>
@@ -31,7 +31,7 @@ import vSidebar from "@/components/Sidebar.vue";
 import vTags from "@/components/Tags.vue";
 import vHeader from "@/components/Header.vue";
 export default {
-  name: "main",
+  name: "Layout",
   data() {
     return {
       activeName: "plant",

@@ -1,29 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import main from '@/views/main.vue'
+import Layout from '@/views/main.vue'
 
 Vue.use(Router)
 // 路由组件
 const constantRoutes = [
   {
     path: '/',
-    name: 'main',
-    component: main,
+    name: 'Layout',
+    component: Layout,
     redirect: '/dashboard',
     children: [
       {
         path: '/dashboard',
         component: resolve => require(['@/views/pages/Dashboard.vue'], resolve),
         meta: { title: '系统首页' }
-      }
-    ]
-  },
-  {
-    path: '/',
-    name: 'main',
-    component: main,
-    redirect: '/dashboard',
-    children: [
+      },
       {
         path: '/table',
         component: resolve => require(['@/views/pages/Basetable.vue'], resolve),
@@ -61,7 +53,7 @@ const createRouter = () => new Router({
 const router = createRouter()
 
 // 重置路由，防止动态添加路由时，重复添加同一路由信息，导致报错，
-export function resetRouter() {
+export function resetRouter () {
   const newRouter = createRouter()
   router.matcher = newRouter.matcher // reset router
 }
